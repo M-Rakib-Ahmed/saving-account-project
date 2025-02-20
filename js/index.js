@@ -1,14 +1,21 @@
 document.getElementById('calculate').addEventListener('click', ()=>{
     const income = parseFloat(document.querySelector('#income').value);
-    console.log(income);
     const software  = parseFloat(document.querySelector('#software').value);
-    console.log(software);
     const courses = parseFloat(document.querySelector('#courses').value);
-    console.log(courses);
     const internet = parseFloat(document.querySelector('#internet').value);
-    console.log(internet);
+
+    const totalExpenses = software + courses + internet;
+    const balance = income - totalExpenses;
+    // const totalExpensesElement = document.querySelector('#total-expenses');
+    // totalExpensesElement.innerText = totalExpenses
+   
+    document.querySelector('#total-expenses').innerText = totalExpenses.toFixed(2);
+    document.querySelector('#balance').innerText = balance.toFixed(2);
+
+    // document.querySelector('#balance').innerText = totalExpenses
     
-    
+    document.querySelector('#results').classList.remove('hidden')
+   
     
     
     
