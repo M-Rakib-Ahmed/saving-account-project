@@ -1,12 +1,29 @@
+function getInputValueById(id){
+    return parseFloat(document.getElementById(id).value)
+}
+
+
 document.querySelector('#calculate').addEventListener('click', () => {
-    const income = parseFloat(document.querySelector('#income').value);
-    const software = parseFloat(document.querySelector('#software').value);
-    const courses = parseFloat(document.querySelector('#courses').value);
-    const internet = parseFloat(document.querySelector('#internet').value);
+    // const income = parseFloat(document.querySelector('#income').value);
+    const income = getInputValueById('income')
+    // const software = parseFloat(document.querySelector('#software').value);
+    const software = getInputValueById('software')
+    // const courses = parseFloat(document.querySelector('#courses').value);
+    const courses = getInputValueById('courses')
+    // const internet = parseFloat(document.querySelector('#internet').value);
+    const internet = getInputValueById('internet')
+    if(income < 0 || isNaN(income)){
+       document.querySelector('#income-error').classList.remove('hidden')
+        return
+    }
     const totalExpenses = software + courses + internet;
     console.log(totalExpenses);
     const balance = income - totalExpenses;
-    console.log(balance);
+   
+    if(totalExpenses > income){
+        alert('Rakib Try agaion')
+        return
+    }
 
     document.querySelector('#total-expenses').innerText = totalExpenses;
     document.querySelector('#balance').innerText = balance;
@@ -71,3 +88,4 @@ assistantTab.addEventListener('click', () => {
     document.querySelector('#history-section').classList.add('hidden');
 
 })
+
