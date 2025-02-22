@@ -22,7 +22,11 @@ document.querySelector('#calculate-savings').addEventListener('click', ()=>{
     const totalExpenses = software + courses + internet;
     const balance = income - totalExpenses;
     const savingAbout = (savingPercntace * balance) / 100;
-    document.querySelector('#savings-amount').innerText = savingAbout
+    document.querySelector('#savings-amount').innerText = savingAbout.toFixed(2)
+    const remainingBalance = balance - savingAbout;
+    console.log(remainingBalance);
+    document.querySelector('#remaining-balance').innerText = remainingBalance;
+    
     
     
     
